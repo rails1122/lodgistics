@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Faye Test</title>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <input type="text" id="text">
+  <button id="send">Send</button>
+  <button type="button" name="button" id="read">Mark as Read</button>
+
+  <div id="logger">
+  </div>
+
+  <script type="text/javascript" src="http://dev.lodgistics.com:9292/faye/client.js"></script>
+  <script type="text/javascript">
+    var client = new Faye.Client('http://dev.lodgistics.com:9292/faye');
+    var propertyToken = '082557';
+    var authToken = 'ac37770d1d6699bfeb067ef9c66bab3e';
+    var groupId = 361
+
+    var AuthExtension = {
+      incoming: function (message, callback) {
+        callback(message);
+      },
+
+      outgoing: function (message, callback) {
+        if (!message.data) {
+          message.data = {};
+        }
+        message.data.auth_token = authToken;
+        message.data.property_token = propertyToken;
+        callback(message);
+      }
+    }
+    client.addExtension(AuthExtension);
+
+    var addLog = function(message) {
+      var $logger = $("#logger");
+      $logger.html($logger.html() + "<br>" + message);
+    }
+
+    var subscription = client.subscribe('/group/' + groupId, function (message) {
+      addLog('Message from server: ' + JSON.stringify(message));
+    });
+
+    subscription.then(function () {
+      addLog('Subsribed to group/' + groupId + ' channel!');
+    }, function (message) {
+      addLog(message);
+    });
+
+    $("#send").on('click', function(e) {
+      var text = $("#text").val();
+      if (!text) return;
+
+      var $logger = $('#logger');
+      var publication = client.publish('/group/' + groupId, {message: text, action: 'create', mentioned_user_ids: [198]});
+      addLog("Sent message: " + text);
+
+      publication.then(function() {
+        addLog("Server received message: " + text);
+      }, function (error) {
+        addLog("There was a problem to send message: " + error.message);
+      })
+    });
+
+    $("#read").on('click', function (e) {
+      var text = $("#text").val();
+      if (!text) return;
+
+      var $logger = $("#logger");
+      var data = {ids: [text], action: 'read'};
+      var publication = client.publish('/group/' + groupId, data);
+      publication.then(function() {
+        addLog('Server received message' + JSON.stringify(data));
+      }, function (error) {
+        addLog("There was a problem to send message: " + error.message);
+      })
+    });
+  </script>
+</body>
+</html>

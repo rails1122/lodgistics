@@ -1,0 +1,63 @@
+- body_class 'task-list-page'
+
+.page-header.page-header-block
+  .page-header-section
+    h4.title.semibold= t('.header')
+
+.row
+  .col-sm-12.col-md-12
+    #task-list-content
+
+script#task-list-template type="x-tmpl-mustache"
+  .widget.panel.task-list data-id='{{id}}'
+    .panel-body
+      ul.list-table
+        li.task-list-number
+          span
+            | {{index}}
+        li.task-list-content
+          ul.list-table
+            li
+              h3
+                | {{name}}
+              p.description
+                | {{description}}
+              p.text-muted.notes
+                | {{notes}}
+            li.task-list-actions
+              = link_to '#', class: 'btn btn-success btn-outline btn-start-resume' do
+                | {{#task_list_record_id}}
+                  CONTINUE
+                | {{/task_list_record_id}}
+                | {{^task_list_record_id}}
+                  START
+                | {{/task_list_record_id}}
+              | {{#lastActivity}}
+              div
+                span.text-muted Last Completed by&nbsp;
+                | {{#finished_by}}
+                | {{> name}}
+                | {{/finished_by}}
+                br
+                | On {{lastActivity.formatted_finished_at}}
+              | {{/lastActivity}}
+          | {{#lastActivity}}
+          a.task-list-history{
+              href="#task-list-{{task_list.id}}-history"
+              data-toggle="collapse" aria-expanded="false"
+          }
+            | History
+            '
+            i.ico-arrow-down2.text-primary
+            i.ico-arrow-up2.text-primary
+          .collapse.in id="task-list-{{task_list.id}}-history"
+            .task-list-timeline
+              .timeline-start TODAY
+              .timeline-center-line
+              .timeline-content
+                | {{#activities}}
+                | {{> activity}}
+                | {{/activities}}
+          | {{/lastActivity}}
+
+= render 'templates'

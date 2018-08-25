@@ -1,0 +1,470 @@
+- :task_list: BREAKFAST OPEN
+  :description: "Daily Checklist for F&B. Remember 10/5 Rule: When you are 10 feet from a guest smile and make direct eye contact. When you are 5 feet from a guest, verbally greet them."
+  :notes: If any items on the checklist are not completed verbally notify next shift.
+  :assignables:
+    - :departments:
+        - Food & Beverage
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - "Food & Beverage"
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Asst General Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: SETUP
+      :items:
+        - "Retrieve Urns & Begin Brewing Coffee"
+        - Retrieve Bar Keys From Front Desk
+    - :category: OPEN BUFFET
+      :items:
+        - Unlock Cabinets
+        - "Setup Buffet – Beverage Station: Fresh & Full Juices / Milks"
+        - "Setup Buffet – Cereals"
+        - "Setup Buffet – Condiments, Jellies, Peanut Butter"
+        - "Setup Buffet – Fresh Fruit"
+    - :category: OPEN COFFEE STATION
+      :items:
+        - "Setup Coffee Urns – Regular, Decaf, Hot Water"
+        - "Setup Hot Tea / Hot Chocolate Box"
+        - Set Out Coffee Caddies, Bev Naps, Stirrers, Coffee Cups, Coffee Lids
+        - "Set Out Coffee Condiment Caddies: Sugars & Creamers"
+        - Ensure Area is Stocked, Neat & Clean
+    - :category: OPEN RESTAURANT
+      :items:
+        - "Retrieve & Setup Dish Cart / Trash Can"
+        - "Setup Tables – Silver Rolls, Salt & Pepper, Sugar/Creamer Caddies"
+        - "Setup Glassware: Juice Glasses / Coffee Mugs"
+    - :category: OPEN BAR AREA
+      :items:
+        - Set Up Bar Coffee Station
+        - Set Out Menus
+        - "Check Setup of Bar Condiment Station – Sauces/Syrups"
+        - Ensure Ice Bin Is Filled
+        - Turn On Televisions (Sports or News)
+    - :category: Open POST
+      :items:
+        - "Sign into POS & Assign Drawer"
+        - Count Register Ensuring Bank of $250
+        - Fill Out Bank Logbook
+- :task_list: BREAKFAST CLOSE
+  :description: "Daily Checklist for F&B. Remember 10/5 Rule: When you are 10 feet from a guest smile and make direct eye contact. When you are 5 feet from a guest, verbally greet them."
+  :notes: If any items on the checklist are not completed verbally notify next shift.
+  :assignables:
+    - :departments:
+        - Food & Beverage
+      :roles:
+        - User
+  :reviewables:
+    - :departments:
+        - Food & Beverage
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Asst General Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: CLOSE RESTAURANT
+      :items:
+        - "Pickup all Silver Rolls, Salt, & Pepper"
+        - "And Sugar & Creamer Caddies"
+        - Wipe down Tables/Chairs
+    - :category: CLOSE BUFFET
+      :items:
+        - "Retrieve And Put Up Beverage Station: Refill, Date & Store Juices / Milks"
+        - "Refill & Put Up Cereals Caddies"
+        - Wipe Down Buffet Area
+        - Properly Store Items & Lock Cabinets
+        - Empty Trash
+    - :category: CLOSE COFFEE STATION
+      :items:
+        - "Retrieve, Empty & Clean Coffee Urns"
+        - "Refill & Put Up Hot Tea / Hot Choc Box"
+        - "Refill & Put Up Coffee Caddies, Bev Naps, Stirrers, Coffee Cups, Coffee Lids"
+        - "Refill & Put Up Condiment Caddies Sugars & Creamers"
+        - Wipe Down Coffee Station Area
+        - Empty Trash
+    - :category: CLEAN BAR AREA
+      :items:
+        - Take Back All Dishes
+        - "Retrieve, Empty & Clean Coffee Urns"
+        - Put Up Menus
+        - "Put Up & Refill Condiment Station – Sauces/Syrups"
+        - Refill Ice Bin
+        - "Wipe Down And Clean Counters & Sinks"
+        - "Polish, Roll, Refill & Label Silverware"
+        - "Sweep & Mop Dining Room And Bar Area, Straighten Up Tables & Bar Stools"
+    - :category: CLOSE OUT POS
+      :items:
+        - Correctly Close All Checks
+        - Run Sales Report
+        - "Count & Closeout Cash Drawer"
+        - Sign Out, Enter Tips & Release Drawer
+        - Make Drop
+        - Leave Copy of Sales Report On F&B Desk
+        - "Take Out Trash & Dim Lights"
+    - :category: SETUP WATER STATION
+      :items:
+        - Setup Infused Water Apothecary
+        - "Set Out Bev Napkins & Cold Cups"
+- :task_list: BAR OPEN
+  :description: "ALWAYS detail reservations and the Comm. Log about ALL Make It Right situations. Utilize hidden notes, trace, and the pineapple icon within the reservations. Email synopsis to FDS, AGM, and GM."
+  :notes: If any items on the checklist are not completed verbally notify next shift.
+  :assignables:
+    - :departments:
+        - Food & Beverage
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - Food & Beverage
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Asst General Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: SETUP
+      :items:
+        - Retrieve Bar Keys From Front Desk
+        - "Retrieve Cart & Trash Can"
+        - "Retrieve Clean Glassware & Silverware From Kitchen"
+        - "Retrieve Any Needed Supplies From Storage(Linens, Tray Liners, Bev Napkins)"
+    - :category: OPEN RESTAURANT
+      :items:
+        - "Set Tables – Beverage Menus, Silver Rolls, Salt & Pepper"
+        - "Ensure Tables / Chairs Are Straight, Clean & Consistent"
+    - :category: OPEN BAR
+      :items:
+        - "Set Bar – Liquor, Beer, & Wine"
+        - Setup Beverage Menus, Bar Mats
+        - Napkin Caddies, Salt & Pepper
+        - Set Out Menus
+        - "Setup / Refill Beverage Garnish Caddy"
+        - Ensure Television Is On (Sports or News)
+        - Ensure Back Bar Lights Are On
+    - :category: OPEN IRD
+      :items:
+        - Setup IRD Area
+        - "Set Trays: Tray Liner, Silver, S&P, Tray Removal Card"
+        - "Setup Condiments – Ketchup, Mustard, Mayo, Salt & Pepper, Crackers, Removal Cards, Mints"
+    - :category: OPEN POS
+      :items:
+        - "Sign into POS & Assign Drawer"
+        - "Count Register Ensuring Bank of $250"
+        - Fill Out Bank Logbook
+- :task_list: FRONT DESK CHECKLIST (AM)
+  :description: Daily Checklist for Front Desk.
+  :notes: "Remember 10/5 Rule: When you are 10 feet from a guest smile and make direct eye contact. When you are 5 feet from a guest, verbally greet them. If any items on the checklist are not completed verbally notify next shift and/or FDS."
+  :assignables:
+      - :departments:
+          - Front Desk
+        :roles:
+          - User
+      - :departments:
+          - All
+        :roles:
+          - Admin
+  :reviewables:
+      - :departments:
+          - Front Desk
+        :roles:
+          - Manager
+      - :departments:
+          - All
+        :roles:
+          - Admin
+  :task_items:
+    - :category: GENERAL
+      :items:
+        - "Verify cash drawer is at $250; Complete cash count form in binder"
+        - "Open KeepandShare, notify houseman of any early trips; Maintain KeepandShare, record every trip with a scheduled pick-up time, guest name, and contact info"
+        - "Review CARE Log and Comm. Log from previous day; Follow-up with any maintenance issues to be sure they were completed and notify department heads of any incidents"
+        - "Begin CARE Log for the day; Record events as they happen (including: late check-outs, stay-overs, early departures, maintenance issues)"
+        - "Read and respond to any emails in Front Desk email account; Read previous nights’ Evening Report for pertinent information"
+        - "Review meetings and incoming groups in Comm. Log; Verify Group Resumes and BEO’s with any confusion, email Sales Team with any questions, CC: AGM & FDS"
+        - "Print High Balance Report; begin collection process on any outstanding high balances"
+        - "Print Room Balance Summary Report and take payment on room balances that exceed $1,000"
+        - "Print Trace Report (notify HSKP or ENG of changes or issues, recordlate check-outs in CARE Log); Downtime Report if weather is bad. Attach all copies to check list to turn in"
+        - "Print E-Check-In Report, list any late check-outs, stay-overs, and early departures, then deliver to HSKP; Periodically notify HSKP of updates"
+        - "Review CRM report, attach any Honors profiles to reservations to ensure points and status are on file. Print, then email to Kip, Ann, T.K., and Candace to review BEFORE 9AM. Record requests for amenities in amenity log tab of CARE Log binder (including: feather free rooms, additional or foam pillows, microwaves, M.O.D. inspections, pack n play’s, etc.)"
+        - "For 3rd party reservations (Expedia, Orbitz, Travel Web, etc.) be sure receipt B virtual credit card is AUTHORIZED for Total Room & Tax and Receipt A is changed to CASH for incidentals, if card is declined use expediapartnercentral.com to find the authorization number then process a manual authorization for required amount, call 3rd party booking if necessary"
+        - "Assign the correct Local Tracking code for all incoming reservations (C.N.R., ECOMM – 3rd party, B.A.R., change E-Check-In to correct tracking, verify code with Local Tracking Guide if necessary)"
+        - "Assign all Honors rooms, prioritize upgrades, check arrivals for duplicates and call guest if applicable (assign near or next to); Balance any oversold room types, notate ALL changes in reservation notes"
+        - "Print Guest Request/Comment Report and record requests for amenities in amenity log tab of CARE Log binder (including: feather free rooms, additional or foam pillows, microwaves, pack n play’s, etc.)"
+        - "Prepare a list of rooms for digital key/E-Check-In guests that require benefits (waters, cookie voucher, breakfast vouchers), rooms with special requests, and checked-out rooms with amenities that need to be removed by 12:00pm for houseman, make a copy for FD. Check off completed benefits for digital key/E-Check-In guests through the Dashboard on OnQ"
+        - "Prepare water bags for all other Honors guest Silver status and above"
+        - "Record all packages and deliveries for guests in black binder under Package Delivery Chart. Ensure room numbers, confirmation numbers, and notes are listed thoroughly in the log. If pending arrival, list package received in guests’ incoming reservation, if guest is in-house attempt to deliver or make notes in Comm. Log/CARE Log for location of package"
+        - "Process Departures"
+        - "Check DoubleTree NOW, DT CARE Community, Hilton Lobby, and SALT Scores"
+        - "Periodically check the Dashboard for any new digital key/E-Check-In guests, update HSKP and houseman of new digital key/E-Check-In arrivals. Deliver benefits with houseman, then check-off completed request in the Dashboard on OnQ"
+        - "Prepare key packets for rooms, include breakfast vouchers for specific Honors members, C.N.R., and ECOMM. reservations. Verify rooming lists and keys packets on days with groups"
+        - "Ensure all issues and guest requests have been completed and notated through the CARE Log with ENG, houseman, and HSKP"
+        - "Close cash and drop in safe; Ask management or next shift to witness drop"
+        - "Write a shift synopsis with any pertinent information for the next shift in the Comm. Log (including: uncompleted issues or guest requests. Verbally huddle-in incoming GSA of any important information"
+    - :category: PROCESSING ARRIVALS
+      :items:
+        - "Guest Call-Backs: Record guests that have arrived and follow-up with guest to be sure everything is to their satisfaction and ask if they have any questions. Address the guest by name and provide your name."
+        - "Key Presentation: Present key to guest by meeting the guest on the other side of the desk. Hand keys directly to guest and address them by name, direct them to the elevators, thank them for staying with us."
+    - :category: DURING DOWNTIME
+      :items:
+        - "Stock Pantry AND Amenity Cabinet, check dates on MADE food and discard if older than 3 days, notify F&B team make fresh market food if necessary"
+        - "Check business center for pens, notepads, refill printer; Sanitize business center"
+        - "Clean desk areas, sanitize desk and counters, and refill printers with paper"
+        - "Straighten Lobby, pick up trash, fix pillows on couches, and make sure all chairs are in proper places"
+- :task_list: FRONT DESK CHECKLIST (PM)
+  :description: Daily Checklist for Front Desk.
+  :notes: "ALWAYS detail reservations and the Comm. Log about ALL Make It Right situations. Utilize hidden notes, trace, and the pineapple icon within the reservations. Email synopsis to FDS, AGM, and GM. Fill out Guest Service Recovery Request form when necessary and place on AGM desk. Remember 10/5 Rule: When you are 10 feet from a guest smile and make direct eye contact. When you are 5 feet from a guest, verbally greet them. If any items on the checklist are not completed verbally notify next shift and/or FDS."
+  :assignables:
+    - :departments:
+        - Front Desk
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - Front Desk
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: GENERAL
+      :items:
+        - "Verify cash drawer is at $250 and fill out cash count binder"
+        - "Review Comm. Log and CARE Log, including previous days/ shifts;  Open FD email, read and respond to any emails and maintain the account; Open and maintain KeepandShare record every trip with a scheduled pick-up time, guest name, and contact info"
+        - "Review/Print CRM Report and Guest Request/Comment Report to verify all guest requests have been met, update the houseman, the CARE Log, and the Amenity Log with any new requests if necessary"
+        - "Open the Dashboard, check for any new digital key/E-Check-In guests, update HSKP and houseman of new digital key/E-Check-In arrivals. Deliver benefits with houseman, then check-off completed request in the Dashboard on OnQ"
+        - "Communicate dirty E-Check-In/digital key rooms with HSKP"
+        - "Print Downtime Reports if weather is bad"
+        - "Verify Due Outs are processed"
+        - "Review arrivals; Check arrivals for duplicates and be sure they are assigned near or next to each other. Call guest if applicable"
+        - "Verify all key packets for arrivals; Be sure breakfast vouchers are included for Diamond guests and for guests with specific rates such as C.N.R., Ecomm., Packages, etc.; Verify My Way for Gold members;  Verify rooming lists and keys packets on days with groups"
+        - "Review 3rd party reservations (Expedia, Orbitz, Travel Web, etc.) be sure receipt B virtual credit card is AUTHORIZED for Total Room & Tax and Receipt A is changed to CASH for incidentals, if card is declined use expediapartnercentral.com to find the authorization number then process a manual authorization for required amount, call 3rd party booking if necessary"
+        - "Review meetings and incoming groups in Comm. Log; Verify Group Resumes and BEO’s with any confusion, email Sales Team with any questions, CC: AGM & FDS"
+        - "Maintain CARE Log and communicate with houseman on ALL requests, issues, and tasks, ensure all items are completed"
+        - "Stock fridge with water bottles, add water to Keurig machine, stock Pantry and amenity cabinet; Check dates on MADE food and discard if older than 3 days"
+        - "Check stock of Make It Right cards, breakfast vouchers, and key cards, and stock accordingly. NOTIFY FDS AND AGM OF LOW INVENTORY OF ITEMS."
+        - "Preview next day arrivals and room totals, upgrading accordingly to balance rooms, and make notation of all changes"
+        - "Check DoubleTree NOW, Hilton Lobby, DT CARE Community, and SALT scores"
+        - "Look ahead and review groups for the following few days to ensure rooms are preassigned, rooming lists arecreated and payment is planned and accounted for. Notify Sales, FDS, and AGM with any questions or concerns"
+        - "On SOLD OUT NIGHTS ONLY pre-authorize remaining arrivals at 8 PM, on close to sell-out nights ONLY email revenue manager with any restrictions such as 2-night minimum etc."
+        - "Deliver Guest Laundry with houseman AFTER verifying last name and room number on ticket. Process charges on Guest Folio, multiply subtotal amount by 30% and add it to the total; Post this to Valet Laundry on Guest Folio. Print additional copy of Folio staple this to the Coachmen receipt and drop this in the GM’s Coachmen folder in mailbox"
+        - "Print High Balance report at 8 PM; begin collection process on any outstanding high balances; Also review all CC Authorization Forms before taking action"
+        - "Periodically check the Dashboard for any new digital key/E-Check-In guests, deliver benefits if necessary"
+        - "BE SURE ALL EARLY KEEPANDSHARE RIDES ARE LOGGED IN COMM.LOG AND PUT INTO EVENING REPORT"
+        - "Draft Evening Report and send by 9 PM; Include all guest issues, good events, restaurant status, special requests for following day, etc."
+        - "Close cash and drop into safe, count cash drawer for $250 balance."
+        - "Make sure there is sufficient stock of cookies for overnight team in the kitchen and in the drawer, add water to ramekin to ensure humidity in the drawer"
+    - :category: PROCESSING ARRIVALS
+      :items:
+        - "Guest Call-Backs: Record guests that have arrived and follow-up with guest to be sure everything is to their satisfaction and ask if they have any questions. Address the guest by name and provide your name."
+        - "Key Presentation: Present key to guest by meeting the guest on the other side of the desk. Hand keys directly to guest and address them by name, direct them to the elevators, thank them for staying with us."
+    - :category: DURING DOWNTIME
+      :items:
+        - "Stock desk cabinet in back office; Ask houseman to assist with adding towels, sheets, and blankets"
+        - "Clean desk area, sanitize desk and counters, and refill printers with paper"
+        - "Check business center for pens, notepads, and refill paper in the printer; Sanitize business center"
+        - "Straighten lobby, pick up trash, fix pillows on couches, make sure all chairs are in proper places"
+- :task_list: FRONT DESK CHECKLIST (NIGHT AUDIT)
+  :description: Daily Checklist for Front Desk.
+  :notes: "Remember 10/5 Rule: When you are 10 feet from a guest smile and make direct eye contact. When you are 5 feet from a guest, verbally greet them. If any items on the checklist are not completed verbally notify next shift and/or FDS"
+  :assignables:
+    - :departments:
+        - Front Desk
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - Front Desk
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: GENERAL
+      :items:
+        - "Get info from 2nd shift about all special situations/events/ issues that you may need to know, review Care Log/ Comm Log Book and open FD email. Make sure cookies are stocked for the night before 2nd shift leaves"
+        - "Verify cash drawer is at $250 and fill out cash count binder"
+        - "View room totals and remaining arrivals. Prepare key packets for remainder of night, and read reservation notes"
+        - "Change the Reader board to the next day for the morning; This should be done at 12 AM"
+        - "Pull all audit materials from Night Audit Mailbox and create basic audit pack stack from AM and PM check lists, paperwork, etc."
+        - "Allowance Breakfast Coupons [print receipts & checkout] and Telephone Exceptions, email ANY variances to AGM and FDS, and record. NUMBER VARIANCES and ACCOUNT. DO NOT CHECKOUT FRONT DESK OR TELEPHONE EXCEPTIONS ACCOUNTS UNTIL E.O.M."
+        - "Check local tracking in excel format (DO NOT SAVE), fix any errors in ONQ reservation and record rooms here in comment."
+        - "Print H.S.I. “outlet distribution” reports (computer in back office) once bartender checks out with you"
+        - "Open Night Audit on the primary work station to begin audit work"
+        - "Complete outlet distribution in Night Audit"
+        - "Auto post: print auto post exceptions report, and then process auto post rooms. Input all exceptions in Night Audit report"
+        - "Print and verify high balance report, fixing room balances and taking notations on any rooms in question. Send High balance letter if needed- insert this information in night audit report"
+        - "Shift balance"
+        - "Close Accounts(cash balancing and close accounts) and auto post and print auto post exception"
+        - "Closeout (select archive) at 2:30 AM, 3:30 AM at the latest.  ***EOM: Select archive and EOM box***"
+        - "Logout of front desk and re-login (this will put you in the new business day)"
+        - 'Run E.D.C. report, enter authorization code for all that read "yes", and print'
+        - "Login to M3 system and fill out Room Revenue Totals with Local Tracking Worksheet, Room Statistics, Food Statistics with care to input voucher amount and actual paying guest amount, Actual Deposit amount from Cash/Check line in PTD-YTD Report, and Accounts Receivable numbers with the Detailed Receivables Recap report"
+        - "Print and deliver zip outs by 3:30 AM. Notate any issues in the halls, maintenance, etc. and include in Night Audit Report"
+        - "Make coffee, setup the coffee station and set up the hot tea"
+        - "Hotel Effectiveness; MUST BE COMPLETED PRIOR TO 6 AM; Review Night Audit Entry Instructions"
+        - "Login to M3 system (wait about an hour and a half after audit is run), input Actual Deposit amount of cash/check amount; if not balanced-  3 point check, check banquet charges, Honors Redemption, and No Show Charges for anything missed, and email GM, AGM, and FDS of any issues"
+        - "When balanced, email M3 Report to GM, appropriate Sales Managers, DT Audit Email, AGM, and FDS only. Subject: DTCXNC AUDIT [DATE], and PRINT. This goes DIRECTLY on the top of the audit packet. DO NOT ROLL AUDIT DAY UNLESS AUTHORIZED DIRECTLY BY FDS, AGM, OR GM BEFORE SHIFT"
+        - "Charge any no-shows and review late cancelled reservations and charge as needed"
+        - "Access Sharepoint via Front Desk Email and update The Weekly Market Segmentation Report with the room revenue and count Monday thru Saturday; Follow Segmentation Step by Step if needed for Saturday going into Sunday morning and Sunday going into Monday if needed"
+        - "Night Audit Report Email: Construct Night Audit Report email with detailed information about shift including but not limited to- Trace Report information with all late check outs and Trace notes, Auto Post Exceptions rooms and reason why, Maintenance/Housekeeping issues found during security walk, General information on lobby activities overnight, any High Balance issues and what rooms received High Balance letters, any items and supplies that are running low at the desk, etc. This report goes to: Evening Report group in email account"
+        - "Create Audit Night pack with ALL forms from Audit Mailbox, day checklists, and ALL paperwork printed during the night. Place on AGM’s desk"
+        - "Tidy up lobby, pick up trash, fix pillows on couches, and make sure all chairs are in proper places. Remove trash from lobby, toss old newspapers in the trash bin in employee hallway. Do not leave old newspapers at the front desk or in the back office. Dispose of them in the proper location"
+        - "Check hotel main entrance and back patio: check for overflowing trash, straighten up chairs and tables on patio, and clean up any cigarette butts, beer bottles, or wine glasses"
+    - :category: PRINT / SAVE REPORTS
+      :items:
+        - "Archive folder reports in G Drive for M3 (AR AGING SUMMARY, DETAILED RECEIVABLES RECAP, PTD-YTD, ROOM-GUEST STATS)"
+        - "Revenue Manager Reports: Market Category Summary Totals, Room-Guest Stats, Source of Business By Market Percentage and Screenshot of Daily Totals"
+        - "Account Detail Report: BDR [AUDIT DATE]"
+        - "Rate Override Report"
+        - "No Show Report"
+        - "Local Tracking Totals Report for Worksheet"
+        - "Save and complete committed Local Tracking and print front page of worksheet"
+        - "Print Trace Report for Night Audit Report Email"
+        - "Future Rooms Sold (Monday, Wednesday, and Friday MORNING)"
+    - :category: EMAILED REPORTS
+      :items:
+        - "Scan Care Log: Front Desk, then forward Care Log group"
+        - "Scan HSI and EDC: GM,AGM, and FDS"
+        - "Bank Deposit (BDR) Report: GM and AGM"
+        - "Local Tracking: Local Tracking group, add Audit date to title"
+        - "No Shows: GM, AGM, FDS, and Sales Team"
+        - "Rate Override:  Rate Override group, add Audit date to title"
+        - "Revenue Manager Reports: Include Source of Business Summary, Room/Guest Statistics, Market Category Summary, View Daily Totals Screenshot Capture: Email to Revenue Manager, Subject: Emailed Reports [Date]"
+        - "Future Rooms Sold (Monday, Wednesday and Friday only): GM, AGM, FDS, Sales Team, and Revenue Manager"
+    - :category: PROCESSING ARRIVALS
+      :items:
+        - "Key Presentation: Present key to guest by meeting the guest on the other side of the desk. Hand keys directly to guest and address them by name, direct them to the elevators, thank them for staying with us."
+- :task_list: HOUSEMAN CHECKLIST (AM)
+  :description: Daily Checklist for Houseman.
+  :notes: "For all lunch breaks, you are required to clock out for 30 minutes. 15 minute breaks are not required to clock out. Please highlight all uncompleted tasks to the Executive Housekeeper or Housekeeping Supervisor."
+  :assignables:
+    - :departments:
+        - Housekeeping
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - Housekeeping
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: GENERAL
+      :items:
+        - "Upon Arrival, please check all hallways for trays & trash"
+        - "Walk the exterior property for cigarette butts and trash. Also check exterior entry-way for spider webs"
+        - "Take Kings and Queens sheets to all housekeeping closets: 12 Kings & 10 Queens."
+        - "Vacuum pre-function area and wipe down furniture with all purpose cleaner. Please wipe picture frames as well"
+        - "Clean lobby area. (Wipe down all furniture, clean all windows, vacuum carpet area and picture frames) Dust blinds"
+        - "Wipe down ALL trash cans in lobby area. In entry-way, check ceiling and corners for spider webs."
+        - "Walk hallways again for trays & trash; Clean guest laundry area; Check ALL vending areas (wipe down machines, check trash, sweep and mop)"
+        - "Check patio area. Clean if necessary."
+        - "Clean Fitness Center - change water if necessary; check wipes. Wipe down ALL machines with all purpose cleaner. Sweep and mop the floor."
+        - "Clean Pool Area - Pool area bathroom should be cleaned DAILY. Replenish towels and empty trash. Wipe down pool furniture"
+        - "Clean elevators. Please clean in between creases of the walls. All corners should be swept out before mopping. Entire elevator should be wiped down, inside and out."
+        - "Vacuum hallways after 11am (Mondays and Fridays)."
+        - "Sweep & Mop BOTH stairways on Tuesdays, Saturdays & Sundays"
+        - "Clean break-room area. When cleaning the restroom, please wipe down the walls near toilet. Sweep and mop restroom floor. Clean countertop in break-room sitting area. Wipe down microwave. Clean refrigerator with all purpose cleaner."
+        - "Walk hallways again for trays & trash; Clean guest laundry area; Check ALL vending areas (wipe down machines, check trash, sweep and mop)"
+    - :category: CLEAN PUBLIC RESTROOM AREAS
+      :items:
+        - "Please wipe kick-plate on entry doors"
+        - "Wipe down all chrome (with stainless steel product)"
+        - "Wipe down counter top and clean toilets"
+        - "First sweep, then mop entire bathroom floor"
+        - "Replenish any toilet tissue or Kleenex. (DO NOT STOCK EXTRA UNDER SINK. IF KLEENEX IS YELLOW PLEASE CHANGE)"
+- :task_list: HOUSEMAN CHECKLIST (PM)
+  :description: Daily Checklist for Houseman.
+  :notes: "For all lunch breaks, you are required to clock out for 30 minutes. 15 minute breaks are not required to clock out. Please highlight all uncompleted tasks to the Executive Housekeeper or Housekeeping Supervisor. (Stocking storage closets nightly should NEVER be an uncompleted task)"
+  :assignables:
+    - :departments:
+        - Housekeeping
+      :roles:
+        - User
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :reviewables:
+    - :departments:
+        - Housekeeping
+      :roles:
+        - Manager
+    - :departments:
+        - All
+      :roles:
+        - Admin
+  :task_items:
+    - :category: GENERAL
+      :items:
+        - "Upon Arrival, please check all hallways for trays & trash"
+        - "Walk the exterior property for cigarette butts and trash. Also check exterior entry-way for spider webs"
+        - "Vacuum pre-function area and wipe down furniture with all purpose cleaner. Please wipe picture frames as well"
+        - "Clean lobby area. (Wipe down all furniture, clean all windows, vacuum carpet area and picture frames) Dust blinds"
+        - "Wipe down ALL trash cans in lobby area. In entry-way, check ceiling and corners for spider webs."
+        - "Walk hallways again for trays & trash; Clean guest laundry area; Check ALL vending areas (wipe down machines, check trash, sweep and mop)"
+        - "Check patio area. Clean if necessary."
+        - "Clean Fitness Center - change water if necessary; check wipes. Wipe down ALL machines with all purpose cleaner. Sweep and mop the floor."
+        - "Clean Pool Area - Pool area bathroom should be cleaned DAILY. Replenish towels and empty trash. Wipe down pool furniture"
+        - "Clean elevators. Please clean in between creases of the walls. All corners should be swept out before mopping. Entire elevator should be wiped down, inside and out."
+        - "Vacuum hallways after 11am (Mondays and Fridays)."
+        - "Sweep & Mop BOTH stairways on Monday, Wednesdays & Fridays"
+        - "Clean back administrative office. Please empty all trash"
+        - "Clean break-room area. When cleaning the restroom, please wipe down the walls near toilet. Sweep and mop restroom floor. Clean countertop in break-room sitting area. Wipe down microwave. Clean refrigerator with all purpose cleaner."
+        - "Walk hallways again for trays & trash; Clean guest laundry area; Check ALL vending areas (wipe down machines, check trash, sweep and mop)"
+        - "Mop Housekeeping closet once a week."
+        - "IMPORTANT- ALL STORAGE CLOSETS MUST BE STOCKED NIGHTLY WITH 12 SETS OF KING SHEETS, 10 SETS OF QUEEN SHEETS, 16 BATH TOWELS, 16 HAND TOWELS, 20 WASH CLOTHS, 16 BATH MATS. ----- THIS MUST BE COMPLETED, NO EXCEPTIONS! (This should be completed during your last hour of work)"
+    - :category: CLEAN PUBLIC RESTROOM AREAS
+      :items:
+        - "Pleas`e wipe kick-plate on entry doors"
+        - "Wipe down all chrome (with stainless steel product)"
+        - "Wipe down counter top and clean toilets"
+        - "First sweep, then mop entire bathroom floor"
+        - "Replenish any toilet tissue or Kleenex. (DO NOT STOCK EXTRA UNDER SINK. IF KLEENEX IS YELLOW PLEASE CHANGE)"

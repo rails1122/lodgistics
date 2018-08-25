@@ -1,0 +1,17 @@
+<div class="media-list">
+  <% chats.each do |chat| %>
+    <a href=<%= message_path(chat) %> class="media">
+        <span class="pull-left">
+            <img src="<%= chat.image_url %>" class="media-object img-circle" alt="" width="50px" height="50px;">
+        </span>
+        <span class="media-body">
+            <span class="media-heading"><%= chat.chat_title(current_user) %></span>
+            <span class="media-text ellipsis nm"><%= chat.last_message_content || 'no last message' %></span>
+            <!-- meta icon -->
+            <span class="media-meta pull-right"><%= chat.last_message_at %></span>
+            <!--/ meta icon -->
+        </span>
+    </a>
+  <% end %>
+</div>
+

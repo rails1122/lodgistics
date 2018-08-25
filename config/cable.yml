@@ -1,0 +1,14 @@
+# config/cable.yml
+
+development:
+  adapter: redis
+  url: redis://localhost:6379/
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://127.0.0.1:6379/
+
+

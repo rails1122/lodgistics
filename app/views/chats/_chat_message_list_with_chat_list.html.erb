@@ -1,0 +1,61 @@
+<% is_private = !!chat.try(:is_private) %>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="table-layout nm">
+      <div class="col-lg-12 valign-top panel panel-minimal">
+        <!-- section header -->
+        <div class="section-header mb15">
+          <a type="button" class="btn btn-primary mb5" href="/chats/new">New Group Chat</a>
+          <a type="button" class="btn btn-primary mb5" href="/chats/new?is_private=true">New Private Chat</a>
+        </div>
+        <!--/ section header -->
+        <!-- tab -->
+        <ul class="nav nav-tabs nav-justified">
+          <% if is_private %>
+            <li><a href="#group-chat-tab" data-toggle="tab">Group Chat</a></li>
+            <li class="active"><a href="#private-chat-tab" data-toggle="tab">Private Chat</a></li>
+          <% else %>
+            <li class="active"><a href="#group-chat-tab" data-toggle="tab">Group Chat</a></li>
+            <li><a href="#private-chat-tab" data-toggle="tab">Private Chat</a></li>
+          <% end %>
+        </ul>
+        <!--/ tab -->
+        <!-- tab content -->
+        <% private_chats = chats.select { |i| i.is_private } %>
+        <% group_chats = chats.select { |i| !i.is_private } %>
+        <div class="tab-content panel">
+          <% if is_private %>
+            <div class="tab-pane" id="group-chat-tab">
+              <div class="panel-body np">
+              </div>
+                <%= render partial: 'chat_list', locals: { chats: group_chats } %>
+            </div>
+            <div class="tab-pane active" id="private-chat-tab">
+              <div class="panel-body np">
+                <%= render partial: 'chat_list', locals: { chats: private_chats } %>
+              </div>
+            </div>
+          <% else %>
+            <div class="tab-pane active" id="group-chat-tab">
+              <div class="panel-body np">
+              </div>
+                <%= render partial: 'chat_list', locals: { chats: group_chats } %>
+            </div>
+            <div class="tab-pane" id="private-chat-tab">
+              <div class="panel-body np">
+                <%= render partial: 'chat_list', locals: { chats: private_chats } %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!--/ tab content -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <% if chat.present? %>
+      <%= render partial: 'chat_show', locals: { chat: chat, chat_messages: chat_messages } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+- if occurrence.eventable
+  tr
+    td
+      = link_to occurrence.number, maintenance_work_orders_path(id: occurrence.eventable_id)
+    td
+      span.text-muted Due: #{l(occurrence.eventable.try(:due_to_date) || occurrence.date, format: :short)}
+    td width="140px"
+      span= (occurrence.eventable || occurrence.schedule.eventable).try(:assigned_to_name)
+    td width="70px"
+      span.text-primary= occurrence.eventable.try(:status) || occurrence.status

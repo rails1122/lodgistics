@@ -1,0 +1,25 @@
+<% if !@schedule.valid? %>
+  $('.recurring').html("<%= j render 'maintenance/work_orders/recurring', schedule: @schedule %>");
+  $('#recurring-form').initRecurring();
+<% else %>
+  if ($('form#new-wo-form').data('new-wo')) {
+    $('.recurring').html("<%= j render 'maintenance/work_orders/recurring', schedule: @schedule %>");
+    $('#recurring-form').initRecurring();
+    $('#recurring-form').attr('data-schedule-id', "<%= @schedule.id%>");  
+  } else {
+    $('#recurring-form').initRecurring();
+    <% if @work_order.present? %>
+      $('.modal').modal('hide');
+      var workOrders = $('.work-orders');
+      var firstOccurrence = $("<%= j render 'maintenance/work_orders/work_order', work_order: @work_order %>");
+      workOrders.append(firstOccurrence).shuffle('appended', firstOccurrence);
+    <% end %>
+
+    $("#new-wo-form").submit();
+    try { 
+      workOrders.shuffle.remove(workOrders.find(".work-order[data-wo-id=\"" + <%= @schedule.eventable_id %> + "\"]"));
+    } catch (err) {
+      console.error(error);
+    };
+  }
+<% end %>

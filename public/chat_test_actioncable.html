@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Action Cable Test</title>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="action_cable.js"></script>
+</head>
+
+<body>
+  <h4>Open Javascript Console to See Messages from Subscribed Channel</h4>
+
+  <div id="logger">
+  </div>
+
+  <script type="text/javascript">
+    var propertyToken = '082557';
+    var authToken = 'ac37770d1d6699bfeb067ef9c66bab3e'; // Animesh user_id = 199
+    //var authToken = 'c655583779b27f4b0410a618fcd119f7'; // Akanksha user_id = 200
+    var chatId = 650
+
+    var GET = {}
+    var query = window.location.search.substring(1).split("&");
+    for (var i = 0, max = query.length; i < max; i++)
+    {
+        if (query[i] === "") // check for trailing & with no param
+            continue;
+        var param = query[i].split("=");
+        GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || "");
+    }
+    var propertyToken = GET['property_token'] || '082557'
+    var authToken = GET['auth_token'] || 'ac37770d1d6699bfeb067ef9c66bab3e'
+    var chatId = GET['chat_id'] || '650'
+    var serverAddr = GET['server_addr'] || "localhost:3000"
+
+    var url = "ws://" + serverAddr + "/cable?property_token=" + propertyToken + "&auth_token=" + authToken + "&chat_id=" + chatId;
+    console.log(url);
+
+    this.App = {};
+    App.cable = ActionCable.createConsumer(url);
+    console.log(App);
+
+    App.messages = App.cable.subscriptions.create({channel: 'MessagesChannel', chat_id: chatId}, {
+      received: function(data) {
+        console.log(data);
+      },
+    });
+
+    // To disconnect
+    // App.cable.disconnect();
+  </script>
+</body>
+</html>

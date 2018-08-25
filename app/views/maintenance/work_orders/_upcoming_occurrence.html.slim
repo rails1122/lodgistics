@@ -1,0 +1,30 @@
+- occurrence = schedule.occurrences.detect { |o| o.date == date }
+- index = schedule.start_index + date_counter
+
+- if !occurrence || occurrence.status != Occurrence::STATUS_GENERATED
+  tr data-date=(date) data-schedule-id=(schedule.id)
+    td
+      - if occurrence && occurrence.eventable
+        = link_to occurrence.number, maintenance_work_orders_path(id: occurrence.eventable_id)
+      - else
+        = "##{schedule.eventable_id} (#{index})"
+    td
+      span.text-muted Due: #{l(date, format: :short)}
+    td width="140px"
+      - if occurrence && occurrence.eventable
+        span= occurrence.eventable.assigned_to_name
+      - else
+        = select_tag "#{date}-assigned-to",
+                options_for_select(users_in_current_property,
+                        occurrence.try(:option).try(:assigned_to_id) || @schedule.eventable.try(:assigned_to_id) || Maintenance::WorkOrder::UNASSIGNED),
+                class: 'form-control recurrence-assigned-to'
+    td width="70px"
+      - if occurrence && occurrence.eventable
+        span.text-primary= occurrence.eventable.status
+      - else
+        - if occurrence && occurrence.status == Occurrence::STATUS_SKIP
+          span.text-danger.ico-close
+          '
+          = link_to 'Keep', occurrences_path(occurrence: {date: date, index: index, status: '', schedule_id: @schedule.id}), remote: true, method: :post, class: 'occurrence-status'
+        - else
+          = link_to 'Skip', occurrences_path(occurrence: {date: date, index: index, status: Occurrence::STATUS_SKIP, schedule_id: @schedule.id}), method: :post, remote: true, class: 'occurrence-status'

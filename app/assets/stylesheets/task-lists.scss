@@ -1,0 +1,85 @@
+.task-list-page {
+  .task-list {
+    .list-table {
+      .task-list-number {
+        vertical-align: top;
+        width: 50px;
+
+        span {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: solid 1px #98cc60;
+          color: #98cc60;
+          font-size: 26px;
+          display: block;
+          text-align: center;
+        }
+      }
+
+      .task-list-content {
+        h3 {
+          margin-top: 7px;
+        }
+
+        .description, .notes {
+          font-size: 15px;
+        }
+      }
+
+      .task-list-actions {
+        width: 180px;
+        text-align: center;
+      }
+
+      .btn-start-resume {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .task-list-history {
+      .ico-arrow-up2 {
+        display: inline-block;
+      }
+
+      .ico-arrow-down2 {
+        display: none;
+      }
+
+      &.collapsed {
+        .ico-arrow-up2 {
+          display: none;
+        }
+
+        .ico-arrow-down2 {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.task-list-form {
+  .checklist-selector {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40%;
+  }
+
+  .add-assignable-role, .add-reviewable-role {
+    margin-left: 20px;
+    margin-bottom: 4px;
+  }
+
+  .add-reviewable-role {
+    margin-left: 15px;
+  }
+}
+
+.task-list-setup-page {
+  .checklist-item {
+    overflow: visible;
+  }
+}

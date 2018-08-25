@@ -1,0 +1,45 @@
+<div class="table-layout nm">
+  <div class="col-lg-12 valign-top panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title"><i class="ico-star6 text-warning mr5"></i><%= chat.chat_title(current_user) %></h5>
+    </div>
+
+    <div class="panel-body">
+      <%= render partial: 'chat_messages', locals: {chat_messages: chat_messages, chat: chat} %>
+    </div>
+
+    <div class="panel-footer">
+      <div class="panel-toolbar-wrapper">
+        <div class="panel-toolbar">
+          <form id="new-message-form">
+            <div class="input-group" style="width:100%;">
+              <input type="text" class="form-control msg-input" placeholder="Type your message">
+              <span class="input-group-btn">
+                <button class="btn btn-primary send-msg-btn" type="submit"><i class="ico-paper-plane"></i> <span class="semibold">Send</span></button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="x-tmpl-mustache" id="chat-message-template">
+  <li class="media">
+    <a href="javascript:void(0)" class="media-object">
+      <img src="{{sender_avatar_img_url}}" class="img-circle">
+    </a>
+    <span class="media-body">
+      <p class="media-text">{{message}}</p>
+      <span class="clearfix"></span>
+      <p class="media-meta">
+        {{#room_number}}
+          <span class="media-room-number">Room #{{room_number}}</span>
+        {{/room_number}}
+        {{created_at}}
+      </p>
+    </span>
+  </li>
+
+</script>

@@ -1,0 +1,16 @@
+$('.recurring').html("<%= j render 'maintenance/work_orders/recurring', schedule: @schedule %>");
+$('#recurring-form').initRecurring();
+
+var workOrders = $('.work-orders');
+
+<% @upcomings.each do |upcoming| %>
+  <% if upcoming.eventable_id %>
+    workOrders.shuffle('remove', workOrders.find(".work-order[data-wo-id=\"" + <%= upcoming.eventable_id %> + "\"]"));
+  <% end %>
+<% end %>
+
+<% if @work_order.present? %>
+  $('.modal').modal('hide');
+  var firstOccurrence = $("<%= j render 'maintenance/work_orders/work_order', work_order: @work_order %>");
+  workOrders.append(firstOccurrence).shuffle('appended', firstOccurrence);
+<% end %>

@@ -1,0 +1,20 @@
+.chat-message-list {
+  height: 500px;
+  overflow: scroll;
+
+  li.media {
+    .media-room-number {
+      padding: 2px 5px;
+      margin-top: 10px;
+      font-size: 10px;
+      border: solid 1px #00b1e1;
+      border-radius: 12px;
+      color: #00b1e1;
+      margin-right: 10px;
+    }
+  }
+}
+
+.selected-new-chat-user {
+  border-style: solid;
+}

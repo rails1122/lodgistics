@@ -1,0 +1,85 @@
+= form_for @task_list do |f|
+  .page-header.page-header-block
+    .page-header-section
+      h4.title.semibold
+        = yield :header
+    .page-header-section
+      .actions.pull-right
+        = f.submit 'Save Checklist', class: 'btn btn-primary'
+        '
+        = link_to 'Cancel', :back, class: 'btn btn-danger'
+
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-sm-6
+          .form-group
+            = f.label :name, class: 'control-label'
+            span.text-danger *
+            = f.text_field :name, class: 'form-control'
+          .form-group
+            = f.label :description, 'Instruction description', class: 'control-label'
+            span.text-danger *
+            = f.text_area :description, class: 'form-control', rows: 3
+          .form-group
+            = f.label :notes, 'Notes description', class: 'control-label'
+            = f.text_area :notes, class: 'form-control', rows: 3
+          .form-group
+            label.control-label for="checklist-attachment" Checklist Items
+            .attachment
+              .input-group
+                span.input-group-btn
+                  = link_to asset_path('checklist.xlsx') , class: 'btn btn-inverse' do
+                    i.ico-file-download
+                    '
+                    | Download Template
+                input.form-control#checklist-attachment-name type="text" readonly=""
+                span.input-group-btn
+                  .btn.btn-primary.btn-file
+                    span.icon.iconmoon-file-3
+                      | Browse
+                      = f.file_field :attachment, accept: '.xlsx', id: 'checklist-attachment'
+        .col-sm-6
+          .form-group
+            = label_tag 'Assignable Roles', nil, class: 'control-label'
+            button.btn.btn-primary.add-assignable-role.btn-xs
+              span.ico-plus-sign
+              '
+              | Add Role
+            .permission-roles
+              = f.fields_for :assignable_roles, nil, include_id: false do |rf|
+                .permission-role
+                  = rf.hidden_field :id, value: rf.object.id, class: 'permission-id'
+                  = rf.hidden_field :scope_type, value: TaskListRole.scope_types[:assignable]
+                  = rf.hidden_field :_destroy, value: false, class: 'destroy-role'
+                  .form-group
+                    .row
+                      .col-sm-12
+                        = rf.select :department_id, options_for_select(Department.pluck(:name, :id), rf.object.department_id), {include_blank: 'Select Department'}, class: 'form-control checklist-selector'
+                        = rf.select :role_id, options_for_select(Role.pluck(:name, :id), rf.object.role_id), {include_blank: 'Select Role'}, class: 'form-control checklist-selector'
+                        button.btn.btn-success.btn-add.hidden.btn-sm data-toggle="tooltip" data-container="body" title="Add this role"
+                          span.ico-plus
+                        button.btn.btn-danger.btn-remove.btn-sm data-toggle="tooltip" data-container="body" title="Remove this role"
+                          span.ico-minus
+
+          .form-group
+            = label_tag 'Reviewable Roles', nil, class: 'control-label'
+            button.btn.btn-primary.add-reviewable-role.btn-xs
+              span.ico-plus-sign
+              '
+              | Add Role
+            .permission-roles
+              = f.fields_for :reviewable_roles, nil, include_id: false do |rf|
+                .permission-role
+                  = rf.hidden_field :id, value: rf.object.id
+                  = rf.hidden_field :scope_type, value: TaskListRole.scope_types[:reviewable]
+                  = rf.hidden_field :_destroy, value: false, class: 'destroy-role'
+                  .form-group
+                    .row
+                      .col-sm-12
+                        = rf.select :department_id, options_for_select(Department.pluck(:name, :id), rf.object.department_id), {include_blank: 'Select Department'}, class: 'form-control checklist-selector'
+                        = rf.select :role_id, options_for_select(Role.pluck(:name, :id), rf.object.role_id), {include_blank: 'Select Role'}, class: 'form-control checklist-selector'
+                        button.btn.btn-success.btn-add.hidden.btn-sm data-toggle="tooltip" data-container="body" title="Add this role"
+                          span.ico-plus
+                        button.btn.btn-danger.btn-remove.btn-sm data-toggle="tooltip" data-container="body" title="Remove this role"
+                          span.ico-minus

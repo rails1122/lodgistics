@@ -1,0 +1,10 @@
+tr
+  td
+    .media-object= image_tag customer.avatar.url, class: 'img-circle', alt: customer.name
+  td= customer.name
+  td= customer.email
+  td= customer.username
+  td= customer.phone_number
+  td= raw customer.all_properties.pluck(:name).join('<br/>')
+  td
+    = link_to 'Impersonate', impersonate_admin_customer_path(customer), method: :post, class: 'btn btn-success'

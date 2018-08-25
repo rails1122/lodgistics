@@ -1,0 +1,21 @@
+<div id="page-info" data-page='1' data-has-more-message='true' data-chat-id=<%= chat.id %>></div>
+<ul class="media-list media-list-bubble chat-message-list">
+  <% chat_messages.each do |msg| %>
+    <li class="media">
+      <a href="javascript:void(0);" class="media-object">
+        <img src=<%= msg.sender.avatar_thumbnail_url %> class="img-circle" alt="">
+      </a>
+      <span class="media-body">
+        <p class="media-text"><%= msg.message_content %></p>
+        <span class="clearfix"></span>
+        <p class="media-meta">
+          <% if msg.room_number %>
+            <span class="media-room-number">Room #<%= msg.room_number %></span>
+          <% end %>
+          <%= msg.created_at %>
+        </p>
+      </span>
+    </li>
+  <% end %>
+</ul>
+

@@ -1,0 +1,13 @@
+<% if @schedule.valid? %>
+  $('.recurring').html("<%= j render 'maintenance/work_orders/recurring', schedule: @schedule %>");
+  $('#recurring-form').initRecurring();
+
+  <% if @work_order.present? %>
+    $('.modal').modal('hide');
+    var workOrders = $('.work-orders');
+    var firstOccurrence = $("<%= j render 'maintenance/work_orders/work_order', work_order: @work_order %>");
+    workOrders.append(firstOccurrence).shuffle('appended', firstOccurrence);
+  <% end %>
+<% else %>
+  $.gritter.add({text: "<%= @schedule.errors.full_messages.to_sentence %>"}, "alert alert-danger")
+<% end %>

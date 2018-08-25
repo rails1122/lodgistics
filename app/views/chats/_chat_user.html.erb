@@ -1,0 +1,12 @@
+<div class="panel widget">
+  <div class="table-layout nm new-chat-user" data-user-id=<%= user.id %>>
+    <div class="col-xs-4 text-center"><img src=<%= user.avatar_thumbnail_url %> width="100%"></div>
+    <div class="col-xs-8 valign-middle">
+      <div class="panel-body">
+        <h5 class="semibold mt0 mb5"><a href="javascript:void(0);"><%= user.name %></a></h5>
+        <p class="ellipsis text-muted mb5"><i class="ico-envelop mr5"></i><%= user.email %></p>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+- body_class 'task-list-activities-page'
+
+.page-header.page-header-block
+  .page-header-section
+    h4.title.semibold= t('.header')
+
+.row
+  .col-sm-12.col-md-12
+    .task-list-timeline
+      .timeline-start TODAY
+      .timeline-center-line
+      .timeline-content#task-list-activities-content
+      .timeline-end.no-more style="display: none;" No more activities
+      .timeline-end.load-more  style="display: none;"
+        a href="#" Load More
+    .indicator.inline style="display: none;"
+      span.spinner
+
+= render 'templates'

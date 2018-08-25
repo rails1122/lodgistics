@@ -1,0 +1,34 @@
+- body_class 'task-list-detail-page'
+
+.page-header.page-header-block
+  .page-header-section
+    h4.title.semibold= @task_list.name
+  .page-header-section
+    .actions.pull-right
+      - if @task_list_record.review?(current_user)
+        = link_to_with_icon 'ico-pencil', t('.review_comment'), '#', class: 'btn btn-primary task-list-review-comment'
+        - if !@task_list_record.reviewed?
+          '
+          = link_to_with_icon 'ico-clock', t('.complete_review'), '#', class: 'btn btn-primary task-list-review', data: {message: t('.confirm_review')}
+      - elsif @task_list_record.started?
+        = link_to_with_icon 'ico-clock', t('.finish'), '#', class: 'btn btn-primary task-list-finish', data: {message: t('.finish_confirm')}
+      '
+      = link_to_with_icon 'ico-close2', t('.cancel'), task_lists_path, class: 'btn btn-danger'
+
+.row
+  .col-sm-12.col-md-12
+    #task-items-content data-id=@task_list_record.id
+
+.modal.fade#task-item-comment-modal
+  .modal-dialog
+    form.modal-content id="task-item-comment-form"
+      .modal-header
+        .cell.text-center
+          h4.semibold.text-primary.modal-title= t('.comment_modal_title')
+      .modal-body
+        .form-group
+          textarea.comment-field class="form-control" rows=5 placeholder=t('.comment_placeholer')
+      .modal-footer
+        button.btn.btn-primary.btn-submit type="submit"
+
+= render 'templates'

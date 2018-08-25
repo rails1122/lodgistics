@@ -1,0 +1,91 @@
+= form_for schedule, html: { id: 'recurring-form' }, remote: true, data: {'parsley-validate' => true} do |f|
+  = f.hidden_field :eventable_type, value: 'Maintenance::WorkOrder'
+  = f.hidden_field :eventable_id, value: schedule.eventable.try(:id)
+  .form-group
+    label.control-label Recurring Type:
+    '
+    label.switch.switch-primary.inline-block
+      = f.check_box :recurring_type, {class: 'recurring-type'}, Schedule::MONTHLY, Schedule::WEEKLY
+    '
+    .inline-block.recurring-type-desc
+      h5.text-danger.weekly Weekly
+      h5.text-primary.monthly Monthly
+  .form-group.weekly-options
+    #week-days
+      - Schedule::WEEK.each do |day|
+        = link_to day[0], '#', class: "btn-day #{'selected' if f.object.days.include?(day[1])}", data: {value: day[1]}
+  .form-group.monthly-options.hidden
+    #month-days
+      - (1..31).each do |date|
+        = link_to date, '#', class: "btn-date #{'selected' if f.object.days.include?(date)}", data: {value: date}
+        - if date % 7 == 0
+          br
+      = link_to 'Last Day', '#', class: "btn-date last-date #{'selected' if f.object.days.include?(-1)}", data: {value: -1}
+  .text-danger#recurring-error Select one or more days.
+  .form-group.row
+    .col-xs-2.col-sm-1.text-right
+      label.control-label Start:
+    .col-xs-10.col-sm-11
+      = f.text_field :start_date, class: 'form-control', id: 'start-time', value: l(f.object.start_date, format: :short), required: true
+  .form-group.row
+    .col-xs-2.col-sm-1.text-right
+      label.control-label End:
+    .col-xs-10.col-sm-11
+      = f.text_field :end_date, class: 'form-control', id: 'end-time', value: l(f.object.end_date, format: :short), required: true
+  .form-group.interval-options.row
+    .col-xs-2.col-sm-1.text-right
+      label.control-label Every:
+    .col-xs-10.col-sm-11
+      = f.text_field :interval, class: 'form-control interval', id: 'interval', required: true
+      span.inline-block.interval-desc weeks
+  #recurring-actions.text-right
+    - unless f.object.new_record?
+      = link_to 'Delete', schedule_path(f.object), class: 'btn btn-danger delete-schedule', data: {confirm: 'Delete schedule?', remote: true, method: :delete}
+      '
+    = f.submit class: 'btn btn-success', id: 'save-recurring'
+
+#occurrences-panel.pt10
+  .panel-group.panel-group-compact#occurrences
+    .indicator#recurring-indicator
+      span.spinner
+    - if (!schedule.new_record? && schedule.occurrences.upcoming.count > 0) || (schedule.eventable && schedule.eventable.past_occurrences.upcoming.generated.count > 0)
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a data-toggle="collapse" data-parent="#occurrences" href="#active-list"
+              span.arrow.mr5
+              | Active
+        .panel-collapse.collapsed.collapse.in#active-list
+          .panel-body
+            table.table
+              tbody
+                = render partial: 'maintenance/work_orders/past_occurrence', collection: schedule.eventable.past_occurrences.upcoming.generated, as: :occurrence
+                = render partial: 'maintenance/work_orders/past_occurrence', collection: schedule.occurrences.upcoming, as: :occurrence
+    - if !schedule.new_record? && schedule.upcoming_dates.count > 0
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a data-toggle="collapse" data-parent="#occurrences" href="#upcoming-list"
+              span.arrow.mr5
+              | Upcoming
+        .panel-collapse.collapsed.collapse.in#upcoming-list
+          .panel-body
+            table.table
+              tbody
+                = render partial: 'maintenance/work_orders/upcoming_occurrence', collection: schedule.upcoming_dates, as: :date, locals: { schedule: schedule }
+
+    - if schedule.occurrences.past.count > 0 || (schedule.eventable && schedule.eventable.past_occurrences.count > 0)
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a.collapsed data-toggle="collapse" data-parent="#occurrences" href="#past-list"
+              span.arrow.mr5
+              | Past
+        .panel-collapse.collapsed.collapse#past-list
+          .panel-body
+            table.table
+              tbody
+                = render partial: 'maintenance/work_orders/past_occurrence', collection: schedule.occurrences.past, as: :occurrence
+                - if schedule.eventable
+                  = render partial: 'maintenance/work_orders/past_occurrence', collection: schedule.eventable.past_occurrences.past, as: :occurrence
+                  = render partial: 'maintenance/work_orders/past_occurrence', collection: schedule.eventable.past_occurrences.upcoming.other, as: :occurrence

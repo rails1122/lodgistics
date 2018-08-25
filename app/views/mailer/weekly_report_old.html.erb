@@ -1,0 +1,23 @@
+<% content_for :header do %>
+  <p>Hope you had a good weekend!</p>
+  <p>Here is a summary of what happened at your hotel last week:</p>
+
+  <p>Snapshot for '<%= @data[:name] %>'</p>
+  <p>
+    <strong>Work Orders:</strong> <%= @data[:work_orders][:total] %> (<%= @data[:work_orders][:opened] %> opened, <%= @data[:work_orders][:closed] %> closed)
+  </p>
+  <p>
+    <strong>Checklists:</strong> <%= @data[:checklists] %> Completed
+  </p>
+  <p>
+    <strong>Chat Messages:</strong> <%= @data[:chats][:total] %> (<%= @data[:chats][:group] %> group, <%= @data[:chats][:direct] %> direct )
+  </p>
+
+  <p>
+    <strong>Guest Logs:</strong> <%= @data[:guest_logs] %>
+  </p>
+<% end %>
+
+<% content_for :action do %>
+  <%= link_to 'Login', new_session_url(:user), class: 'kmButton', style: "word-wrap: break-word; font-weight: normal; letter-spacing: -0.5px; line-height: 100%; text-align: center; text-decoration: underline; color: #0000cd; font-family: Helvetica, Arial; font-size: 16px; text-decoration:initial;color:#FFFFFF;font-weight:bold;font-size:16px;font-family:Helvetica, Arial;padding-top:0;padding-bottom:0;" %>
+<% end %>

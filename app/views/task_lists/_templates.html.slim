@@ -1,0 +1,143 @@
+script#task-list-name-template type="x-tmpl-mustache"
+  | {{#selfCompleted}}
+  | You
+  | {{/selfCompleted}}
+  | {{^selfCompleted}}
+  | {{name}}
+  | {{/selfCompleted}}
+
+script#task-list-activity-template type="x-tmpl-mustache"
+  .timeline-article
+    div class="{{#left}}content-left-container{{/left}}{{^left}}content-right-container{{/left}}"
+      .panel class="{{#left}}content-left{{/left}}{{^left}}content-right{{/left}}" data-id="{{task_list.id}}" data-record-id="{{id}}"
+        .panel-body
+          div
+            span.text-muted Name:&nbsp;
+            | {{task_list.name}}
+
+          span.text-muted Completed By:&nbsp;
+          | {{#finished_by}}
+          | {{> name}}
+          | {{/finished_by}}
+          div
+            span.text-muted Completed On:&nbsp;
+            | {{formatted_finished_at}}
+          | {{#reviewed_by}}
+          div
+            span.text-muted Reviewed By:&nbsp;
+            | {{#reviewed_by}}
+            | {{> name}}
+            | {{/reviewed_by}}
+          | {{/reviewed_by}}
+          | {{#reviewed_at}}
+          div
+            span.text-muted Reviewed On:&nbsp;
+            | {{formatted_reviewed_at}}
+          | {{/reviewed_at}}
+          div
+            | {{incomplete_count}} of {{total_count}} items not completed.
+          | {{#reviewer_notes}}
+          div
+            span.text-muted Review Notes:&nbsp;
+            | {{reviewer_notes}}
+          | {{/reviewer_notes}}
+    .meta-date
+      | {{day_finished_at}}
+
+script#task-item-review-template type="x-tmpl-mustache"
+  .review-info
+    .panel
+      .panel-body
+        | {{#reviewer_notes}}
+        div
+          span.text-muted Review Notes:&nbsp;
+          a.task-list-review-comment href="#"
+            | {{reviewer_notes}}
+        | {{/reviewer_notes}}
+        div
+          span.text-muted Completed By:&nbsp;
+          | {{#finished_by}}
+          | {{> name}}
+          | {{/finished_by}}
+          | &nbsp;
+          span.text-muted on&nbsp;
+          | {{formatted_finished_at}}
+        | {{#notes}}
+        div
+          span.text-muted Notes:&nbsp;
+          | {{notes}}
+        | {{/notes}}
+        | {{#reviewed_at}}
+        div
+          span.text-muted Reviewed By:&nbsp;
+          | {{#reviewed_by}}
+          | {{> name}}
+          | {{/reviewed_by}}
+          | &nbsp;
+          span.text-muted on&nbsp;
+          | {{formatted_reviewed_at}}
+        | {{#reviewer_notes}}
+        div
+          span.text-muted Notes:&nbsp;
+          | {{reviewer_notes}}
+        | {{/reviewer_notes}}
+        | {{/reviewed_at}}
+
+script#task-items-template type="x-tmpl-mustache"
+  .task-record
+    | {{^started}}
+    | {{> review}}
+    | {{/started}}
+    | {{#categories}}
+    | {{> category}}
+    | {{/categories}}
+
+script#task-category-template type="x-tmpl-mustache"
+  .panel.task-category data-id="{{id}}"
+    .panel-heading.category-header{
+        data-toggle="collapse" data-target="#category-{{id}}-content" aria-expanded="true"
+        class="{{#allCompleted}}text-success{{/allCompleted}}"
+    }
+      h3.panel-title
+        i.ico-arrow-down2.text-primary
+        i.ico-arrow-up2.text-primary
+        span
+          | {{title}}
+      | {{> category_status}}
+    .panel-body.collapse.in id="category-{{id}}-content"
+      table.table.table-hover.task-record-table
+        tbody
+          | {{#item_records}}
+          | {{> task_item}}
+          | {{/item_records}}
+
+script#task-category-status-template type="x-tmpl-mustache"
+  .panel-toolbar.text-right.category-status
+    | [&nbsp;{{completed}}&nbsp;/&nbsp;{{total}}&nbsp;&nbsp;]
+
+script#task-item-template type="x-tmpl-mustache"
+  tr.task-item data-id="{{id}}"
+    td
+      div
+        | {{title}}
+      div
+        a.task-item-action.comment-item{
+            data-toggle="tooltip" data-placement="top" title="Comment"
+            class="{{#comment}}finished text-muted{{/comment}}" href="#"
+          }
+          | {{#comment}}
+          | {{comment}}
+          | {{/comment}}
+          | {{^comment}}
+          | {{#started}}
+          | Add Comment
+          | {{/started}}
+          | {{/comment}}
+    td
+      | {{#started}}
+      .task-item-action.finish-item{
+          data-toggle="tooltip" data-placement="top" title="{{^ completed_at}}Complete{{/completed_at}}{{#completed_at}}Reset{{/completed_at}}"
+          class="{{#completed_at}}finished{{/completed_at}}"
+      }
+        i.ico-ok.fa-fw
+      | {{/started}}

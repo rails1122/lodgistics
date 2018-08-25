@@ -1,0 +1,24 @@
+.page-header.page-header-block
+  .page-header-section
+    h4.title.semibold All Customers
+  .page-header-section
+    .toolbar.clearfix
+      = link_to 'Add New Customer', new_admin_customer_path, class: 'btn btn-primary'
+
+.panel.panel-default
+  .panel-body
+    table.table.table-bordered.table-hover.nm
+      thead
+        tr
+          th width="5%"
+          th Name
+          th Email
+          th Username
+          th Phone Number
+          th Properties
+          th
+      tbody
+        = render partial: 'customer', collection: @users, as: :customer
+
+    .text-center
+      = paginate @users

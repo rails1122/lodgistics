@@ -1,0 +1,4 @@
+- body_class 'task-list-form'
+- content_for :header, t('.header', {checklist_name: @task_list.name})
+
+= render 'form'
